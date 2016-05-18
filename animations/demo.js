@@ -6,5 +6,5 @@ new Vue({
     data: {
         message: 'Hello world!!!'
     },
-    template: '<h1>{{ message }}</h1>'
+    template: require('./demo.html')
 })
