@@ -4,9 +4,11 @@
   "description": "Simple animations directives and components for use with VueJS",
   "main": "index.js",
   "scripts": {
-    "build": "browserify animations/demo.js > dist/bundle.js -t [ babelify --presets [ es2015 ] ] -t [ stringify --extensions [ .html ] ]",
-    "start": "npm run watch:js",
-    "watch:js": "watch 'npm run build' animations/",
+    "build:js": "browserify animations/demo.js > dist/bundle.js -t [ babelify --presets [ es2015 ] ] -t [ stringify --extensions [ .html ] ]",
+    "build:css": "node-sass animations/main.scss dist/main.css",
+    "build": "npm run build:js && npm run build:css",
+    "start": "npm run watch",
+    "watch": "nodemon --watch animations/ -e js scss html -x \"npm run build\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Darion Welch",
@@ -17,6 +19,8 @@
   "devDependencies": {
     "babel-preset-es2015": "^6.9.0",
     "babelify": "^7.3.0",
+    "node-sass": "^3.7.0",
+    "nodemon": "^1.9.2",
     "stringify": "^5.1.0",
     "watch": "^0.18.0"
   }

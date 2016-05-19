@@ -1,10 +1,11 @@
 import Vue from 'vue'
 
-export default Vue.directive({
+export default Vue.directive('sonar', {
     bind: function() {
-        console.log('bind')
+        this.el.className = 'sonar'
     },
     update: function(newValue, oldValue) {
-        console.log(newValue)
+        console.log(newValue);
     }
 })
+
